@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayy mi amor yo mass</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            overflow: hidden; /* Para que los gatitos se muevan por toda la pantalla */
+        }
+        #gatitos-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Para que las imágenes de gatitos estén detrás del contenido */
+        }
+        .gatito {
+            position: absolute;
+            width: 100px; /* Tamaño de las imágenes de los gatitos */
+            height: auto;
+            pointer-events: none; /* Para que los gatitos no interfieran con los clics */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ayy mi amor yo mass</h1>
+        <!-- Puedes agregar cualquier otro contenido aquí -->
+    </div>
+    <div id="gatitos-container"></div> <!-- Contenedor para las imágenes de los gatitos -->
+    <script src="script.js"></script>
+    <script>
+        // Función para generar imágenes de gatitos en posiciones aleatorias
+        function generarGatitos() {
+            var gatitosContainer = document.getElementById('gatitos-container');
+            var numGatitos = 20; // Número de gatitos que deseas mostrar
+
+            for (var i = 0; i < numGatitos; i++) {
+                var gatito = document.createElement('img');
+                gatito.src = 'gatito.jpg'; // Ruta a la imagen del gatito
+                gatito.classList.add('gatito');
+                gatito.style.top = Math.random() * 100 + 'vh'; // Posición vertical aleatoria
+                gatito.style.left = Math.random() * 100 + 'vw'; // Posición horizontal aleatoria
+                gatitosContainer.appendChild(gatito);
+            }
+        }
+
+        window.onload = function() {
+            generarGatitos(); // Generar gatitos al cargar la página
+        };
+    </script>
+</body>
+</html>
